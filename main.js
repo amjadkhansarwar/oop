@@ -45,22 +45,23 @@ class Deck{
         const shuffledArray = this.card.sort((a, b) => 0.5 - Math.random());
         return shuffledArray
     }
-    generateDeck(){
+    static generateDeck(){
         const suits =  Card.suits
         const value = Card.values
+        const deck = new Deck
         for(let i = 0; i < suits.length; i++)
         {
             for(let x = 2; x < value.length; x++)
             {
                 let card = {Value: value[x], Suit: suits[i]};
-                this.addCard(card);
+                deck.addCard(card);
             }
         }
-        return this.card
+        return deck
     }
 }
- const deck = new Deck()
- console.log((deck.generateDeck()))
+ 
+ console.log((Deck.generateDeck()))
 // deck.addCard(new Card(1,'black','diamonds'))
 // deck.addCard(new Card(2,'red','spades'))
 // deck.addCard(new Card(3,'black','heart'))
